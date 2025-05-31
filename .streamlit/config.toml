@@ -1,0 +1,5 @@
+[theme]
+backgroundColor = "#d67474"       # blue background
+primaryColor = "#FFD700"          # yellow-ish primary color (used for highlights)
+textColor = "#FFFFFF"             # white text for contrast
+font = "sans serif"
