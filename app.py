@@ -3,8 +3,21 @@ import streamlit as st
 from langchain.prompts import PromptTemplate
 from langchain_openai import OpenAI
 
+st.set_page_config(page_title="Prompt Rewriter", page_icon="📝")
 # Set your OpenAI API key (or use Streamlit Secrets if deploying securely)
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+# UI Enhancement
+st.markdown("""
+    <style>
+    textarea {
+        background-color: #d67474 !important;
+        color: white !important;
+        border: 1px solid #bb5e5e;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    </style>
+""", unsafe_allow_html=True)
 # Set up the prompt template
 template = """
 You are a helpful prompt rewriter.
@@ -22,7 +35,6 @@ llm = OpenAI(temperature=0.7)
 chain = prompt | llm
 
 # Streamlit UI
-st.set_page_config(page_title="Prompt Rewriter", page_icon="📝")
 st.title("💬 Prompt Rewriter Tool")
 st.markdown("Make your AI prompts clearer, smarter, and more effective! 🚀")
 
