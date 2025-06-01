@@ -28,20 +28,14 @@ Original Prompt: {original_prompt}
 Improved Prompt:"""
 prompt = PromptTemplate.from_template(template)
 
-# Initialize LLM
-llm = OpenAI(temperature=0.7)
-
-# Create chain using new LangChain syntax
+llm = OpenAI(temperature=0.7, model = 'gpt-4o-mini')
 chain = prompt | llm
 
-# Streamlit UI
 st.title("💬 Prompt Rewriter Tool")
 st.markdown("Make your AI prompts clearer, smarter, and more effective! 🚀")
 
-# Input box
 user_input = st.text_area("👨‍💻 Enter your raw prompt below:", height=150)
 
-# Button to trigger rewriting
 if st.button("🔁 Rewrite Prompt"):
     if user_input.strip():
         with st.spinner("Thinking..."):
